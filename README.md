@@ -24,3 +24,11 @@ Then, it re-reads that table and:
 * Bangs the Twitter API at https://developer.twitter.com/en/docs/twitter-api/v1/tweets/post-and-engage/api-reference/post-statuses-destroy-id
 to delete the offending tweet if it meets a criteria (too old)
 * Stores the result of that delete attempt  in the table alongside the original tweet metadata.
+
+## what weird stuff i did here
+I'm being super lazy and rather than making a single app that does everything i'm just breaking it up
+into a few standalone programs
+
+* `read_archive.rb` reads the archive into a sqlite file called tweets.db
+* `read_api.rb` reads the Twitter API and checks if the tweets parsed in the archive are still on Twitter
+* `delete_tweets.rb` deletes all the tweets based on some constants.

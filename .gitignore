@@ -1,2 +1,6 @@
 .idea/**
+*spike*
 .data/**
+log/**
+data/**
+.DS_Store
