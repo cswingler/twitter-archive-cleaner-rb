@@ -11,6 +11,7 @@ GEM
     ffi-compiler (1.0.1)
       ffi (>= 1.0.0)
       rake
+    highline (2.0.3)
     http (4.4.1)
       addressable (~> 2.3)
       http-cookie (~> 1.0)
@@ -26,6 +27,10 @@ GEM
       thread_safe (~> 0.3, >= 0.3.1)
     multipart-post (2.1.1)
     naught (1.1.0)
+    options (2.3.2)
+    progress_bar (1.3.3)
+      highline (>= 1.6, < 3)
+      options (~> 2.3.0)
     public_suffix (4.0.6)
     rake (13.0.3)
     simple_oauth (0.3.1)
@@ -50,6 +55,7 @@ PLATFORMS
   x86_64-darwin-20
 
 DEPENDENCIES
+  progress_bar
   sqlite3
   twitter
 
