@@ -4,7 +4,13 @@ This was a little thing I wrote up when I hit a bug in Twitter's
 website where, after deleting 10 years of tweets using TweetDelete.net, they 
 came back a few weeks later.
 
-## the tiwtter bug
+*WARNING:* This is some super-hacky one-off code I wrote. If you're going to actually 
+use it, spend a good amount of time understanding what it does.
+
+This is also the very first thing I wrote using Ruby, so expect a lot of _bizarre_ patterns
+if you're an experienced Rubyist.
+
+## the Twitter bug
 Old tweets I had deleted would only show up on the Media tab if they had media attached, 
 they were otherwise invisible from my main profile.
 
@@ -32,3 +38,4 @@ into a few standalone programs
 * `read_archive.rb` reads the archive into a sqlite file called tweets.db
 * `read_api.rb` reads the Twitter API and checks if the tweets parsed in the archive are still on Twitter
 * `delete_tweets.rb` deletes all the tweets based on some constants.
+
