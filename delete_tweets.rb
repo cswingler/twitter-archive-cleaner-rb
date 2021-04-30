@@ -40,7 +40,7 @@ def delete_tweet(db_file, twitter_client, tweet_id)
   $logger.info("Deleting tweet id #{tweet_id}")
   destroy_output = twitter_client.destroy_status(tweet_id)
   $logger.debug("Deleted tweet id #{tweet_id}, updating DB")
-  delete_id = destroy_output.id
+  delete_id = destroy_output[0].id
   delete_timestamp = Time.now.strftime('%s')
   update_sql = <<-SQL
     UPDATE tweets SET
@@ -52,7 +52,7 @@ def delete_tweet(db_file, twitter_client, tweet_id)
 end
 
 delete_tweets = get_tweets_to_delete(db_file)
-puts "You're about to delete #{delete_tweets.length}."
+puts "You're about to delete #{delete_tweets.length} tweets."
 puts "Here's your chance to send a SIGINT and get out!"
 gets
 puts "okay, here we go!"
