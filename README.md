@@ -14,7 +14,7 @@ if you're an experienced Rubyist.
 Old tweets I had deleted would only show up on the Media tab if they had media attached, 
 they were otherwise invisible from my main profile.
 
-All tweets that had been deleted _were_ still present though .If you had the direct link
+All tweets that had been deleted _were_ still present, though. If you had the direct link
 to a tweet you could still view it, if you asked the API how many tweets I had it'd show
 over 5000 (when my profile actually only had about 30 post-deletion), and they all remained
 in a requested Twitter Archive.
@@ -22,8 +22,7 @@ in a requested Twitter Archive.
 ## what this tool does
 This needs the output of a Twitter Account Archive (from https://twitter.com/settings/download_your_data)
 * Adds the tweet ID and some metadata into a SQLite table.
-* Does an un-authenticated HTTP GET against the tweet ID and stores the response in a column (you'll get an 
-  `HTTP 404` back if it's been deleted already)
+* Checks the Twitter API to confirm that the tweet still exists.  
 * Stores the timestamp of the last tweet lookup  
   
 Then, it re-reads that table and:
@@ -39,3 +38,4 @@ into a few standalone programs
 * `read_api.rb` reads the Twitter API and checks if the tweets parsed in the archive are still on Twitter
 * `delete_tweets.rb` deletes all the tweets based on some constants.
 
+It's also single-threaded, so it's slow! But you're a lot less likely to get rate-limited that way.
